@@ -1,7 +1,3 @@
-main {
-
-}
-
 body {
     width: 100%;
     margin: 0 auto;
@@ -24,14 +20,14 @@ body {
     width: 30%;
 }
 
+#registedModal {
+    background-color: '#eafeea'
+}
+
 .center-button {
     display: block;
     width: 50%;
     margin-left: 25%;
- }
-
- .modal-backdrop {
-    background-color: #eafeea;
  }
 
  .img {

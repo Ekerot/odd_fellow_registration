@@ -46,12 +46,13 @@
 
     <div id="registedModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
+
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Registrerad</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Välkommen {{ name }} du är nu registrerad!</p>
+                    <p>Välkommen {{ name }}! Du är nu registrerad!</p>
                 </div>
                 <div class="modal-footer">
                 </div>
@@ -73,8 +74,18 @@ $(function(){
         clearTimeout(registedModal.data('hideInterval'));
         registedModal.data('hideInterval', setTimeout(function(){
             registedModal.modal('hide');
-        }, 2000));
+        }, 4000));
     });
+});
+</script>
+
+<script>
+var formSuccess = {% if submission_successful %}true{% else %}false{% endif %};
+
+$(document).ready(function() {
+    if (formSuccess) {
+        $('#registedModal').appendTo("body").modal('show');
+    }
 });
 </script>
 
