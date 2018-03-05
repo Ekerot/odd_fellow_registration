@@ -19,7 +19,12 @@ def index():
 
 @app.route('/register', methods=['POST'])
 def store_guest():
-    getresult(request.form['membernumber'], request.form['name'], request.form['lodge'])
+    getresult(request.form['§'], request.form['name'], request.form['lodge'])
+    return redirect(url_for('index'), code=307)
+
+
+@app.route('/webhook', methods=['POST'])
+def web_hook():
     return redirect(url_for('index'), code=307)
 
 

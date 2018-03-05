@@ -20,16 +20,6 @@ body {
     width: 30%;
 }
 
-#registedModal {
-    background-color: '#eafeea'
-}
-
-.center-button {
-    display: block;
-    width: 50%;
-    margin-left: 25%;
- }
-
  .img {
     width: 30%;
     margin-left: 35%;
@@ -37,10 +27,12 @@ body {
 
 .button {
   display: inline-block;
-  height: 50px;
-  line-height: 50px;
-  padding-right: 70px;
-  padding-left: 70px;
+  margin-top: 10%;
+  margin-left: 30%;
+  width: 40%;
+  line-height: 800%;
+  padding-right: 2%;
+  padding-left: 2%;
   position: relative;
   background-color:rgb(41,127,184);
   color:rgb(255,255,255);
@@ -48,6 +40,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 15px;
+  center: true;
 
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -66,7 +59,7 @@ body {
 .button span {
   position: absolute;
   left: 0;
-  width: 50px;
+  width: 40p;
   background-color:rgba(0,0,0,0.5);
 
   -webkit-border-top-left-radius: 5px;
@@ -84,8 +77,7 @@ border-right: 1px solid  rgba(0,0,0,0.15);
 }
 
 .button:active {
-  margin-top: 3px;
-  margin-bottom: 13px;
+  margin-top: 10.3%;
 
   -moz-box-shadow:0px 1px 0px rgba(255,255,255,0.5);
 -webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.5);

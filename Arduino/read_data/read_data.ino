@@ -60,12 +60,12 @@ void loop() {
   }
 
   byte buffer1[18];
-
-  block = 8;
+  
   len = 18;
 
   //------------------------------------------- GET
-  status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, 8, &key, &(mfrc522.uid)); //line 834 of MFRC522.cpp file
+  block = 8;
+  status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, block, &key, &(mfrc522.uid)); //line 834 of MFRC522.cpp file
   if (status != MFRC522::STATUS_OK) {
     Serial.print(F("Authentication failed: "));
     Serial.println(mfrc522.GetStatusCodeName(status));
@@ -82,7 +82,81 @@ void loop() {
   //PRINT Number as string
   for (uint8_t i = 0; i < 16; i++)
   {
-    if (buffer1[i] != 32)
+    if (buffer1[i] != 64)
+    {
+      Serial.write(buffer1[i]);
+    }
+  }
+
+  block = 10;
+  status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, block, &key, &(mfrc522.uid)); //line 834 of MFRC522.cpp file
+  if (status != MFRC522::STATUS_OK) {
+    Serial.print(F("Authentication failed: "));
+    Serial.println(mfrc522.GetStatusCodeName(status));
+    return;
+  }
+
+  status = mfrc522.MIFARE_Read(block, buffer1, &len);
+  if (status != MFRC522::STATUS_OK) {
+    Serial.print(F("Reading failed: "));
+    Serial.println(mfrc522.GetStatusCodeName(status));
+    return;
+  }
+
+  //PRINT Number as string
+  for (uint8_t i = 0; i < 16; i++)
+  {
+    if (buffer1[i] != 64)
+    {
+      Serial.write(buffer1[i]);
+    }
+  }
+
+  block = 12;
+  status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, block, &key, &(mfrc522.uid)); //line 834 of MFRC522.cpp file
+  if (status != MFRC522::STATUS_OK) {
+    Serial.print(F("Authentication failed: "));
+    Serial.println(mfrc522.GetStatusCodeName(status));
+    return;
+  }
+
+  status = mfrc522.MIFARE_Read(block, buffer1, &len);
+  if (status != MFRC522::STATUS_OK) {
+    Serial.print(F("Reading failed: "));
+    Serial.println(mfrc522.GetStatusCodeName(status));
+    return;
+  }
+
+
+  //PRINT Number as string
+  for (uint8_t i = 0; i < 16; i++)
+  {
+    if (buffer1[i] != 64)
+    {
+      Serial.write(buffer1[i]);
+    }
+  }
+
+  block = 14;
+  status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, block, &key, &(mfrc522.uid)); //line 834 of MFRC522.cpp file
+  if (status != MFRC522::STATUS_OK) {
+    Serial.print(F("Authentication failed: "));
+    Serial.println(mfrc522.GetStatusCodeName(status));
+    return;
+  }
+
+  status = mfrc522.MIFARE_Read(block, buffer1, &len);
+  if (status != MFRC522::STATUS_OK) {
+    Serial.print(F("Reading failed: "));
+    Serial.println(mfrc522.GetStatusCodeName(status));
+    return;
+  }
+
+
+  //PRINT Number as string
+  for (uint8_t i = 0; i < 16; i++)
+  {
+    if (buffer1[i] != 64)
     {
       Serial.write(buffer1[i]);
     }

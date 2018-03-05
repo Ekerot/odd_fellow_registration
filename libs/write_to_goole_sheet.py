@@ -2,9 +2,7 @@ import datetime
 import pygsheets
 import pygame
 from .return_index import return_index
-import requests
 
-#todo make shets into list
 google_sheets = pygsheets.authorize(outh_file="auth.json")
 sheet = google_sheets.open('Närvarolista Odd fellow')
 sheet2 = google_sheets.open('Matanmälan')
@@ -12,7 +10,7 @@ worksheet = sheet.sheet1
 worksheet2 = sheet2.sheet1
 
 
-def getresult(membernumber, name, lodge):
+def getresult(membernumber, name, lodge, source):
 
     index = return_index()
 
@@ -27,21 +25,13 @@ def getresult(membernumber, name, lodge):
 
     if str(membernumber) in data:
         food = 'Ja'
-        print(data)
     else:
         food = ''
-        print(data)
 
     worksheet.update_cell(str(second_column), str(name))
     worksheet.update_cell(str(first_column), timestamp)
     worksheet.update_cell(str(third_column), str(membernumber))
     worksheet.update_cell(str(fourth_column), lodge)
     worksheet.update_cell(str(fifth_column), str(food))
-
-    pygame.mixer.init()
-    pygame.mixer.music.load("/home/ekerot/PycharmProjects/odd_fellow_registration/audio/welcome.mp3")
-    pygame.mixer.music.play()
-
-    requests.post("http://localhost:8080/", data={'name': name, 'membernumber': membernumber})
 
     pass
